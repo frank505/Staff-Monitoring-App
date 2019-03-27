@@ -1,0 +1,35 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons class="drawer_elem" slot="start">
+          <ion-back-button defaultHref="/admin/dashboard/tasks/tasks/view-task"></ion-back-button>
+        </ion-buttons>
+    <ion-title >Task Update</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="dataHolder.loader">
+
+  <ion-item>
+    <ion-label position="floating">Add a header for this task</ion-label>
+    <ion-input type="email" name="name" [(ngModel)]="taskForm.header" required></ion-input>
+  </ion-item>
+       
+
+      <ion-item>
+        <ion-label position="floating">enter the task here</ion-label>
+        <ion-textarea  [(ngModel)]="taskForm.task_content"></ion-textarea>
+
+        <label for="fileChooserSubmit"><b style="color:red" ><ion-icon name="document"></ion-icon>Attach a file</b></label>
+      </ion-item>
+          <input type="file" name=""  #resetFile ng2FileSelect [uploader]="uploader" id="fileChooserSubmit"  style="display: none;" >
+      <ion-button color="primary" type="submit"  (click)="UpdateTask(dataHolder.task_data.id)" expand="full" style="margin-top:20px;">Submit
+        &nbsp;<ion-icon name="person-add"></ion-icon></ion-button><br>
+
+        <!-- <input type="file" #file (change)="onChange(file.files)"/> -->
+
+        <ion-item>
+          <span *ngIf="dataHolder.task_data.attached_file != NULL" >
+          <ion-button (click)="DownloadAvailableFile(dataHolder.task_data.attached_file)" ><ion-icon name="download"></ion-icon></ion-button><ion-text style="color:red;">Download File</ion-text>&nbsp;&nbsp;</span>
+      </ion-item>
+
+</ion-content>

@@ -1,0 +1,45 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>ViewAdmin</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header color="primary">
+  <ion-toolbar>
+      <ion-buttons class="drawer_elem" slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title color="primary">registered admins</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="loaded">
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      
+    <ion-card *ngFor=" let details of user_details">
+        <ion-card-header>
+          <ion-card-subtitle>Profile details</ion-card-subtitle>
+          <ion-card-title>Profile</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content >
+       <h2><b> Name:</b></h2>
+       <b>{{details.name}}</b>
+       <h2><b> Email:</b></h2>
+       <b>{{details.email}}</b>
+        <h2><b>Phone:</b></h2>
+       <b>{{details.phone_number}}</b>
+      </ion-card-content>
+      </ion-card>
+     
+
+      <ion-infinite-scroll  (ionInfinite)="loadMoreData($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+</ion-content>

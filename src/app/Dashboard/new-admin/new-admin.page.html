@@ -1,0 +1,48 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>NewAdmin</ion-title>
+  </ion-toolbar>
+</ion-header>
+ -->
+
+<ion-header color="primary">
+  <ion-toolbar>
+      <ion-buttons class="drawer_elem" slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title color="primary">New Admin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <form #loginFormCreateAdmin=ngForm   (ngSubmit)="CreateAdmin()">
+    
+      <ion-item>
+          <ion-label position="floating">username</ion-label>
+          <ion-input type="email" name="name" [(ngModel)]="form.name" required></ion-input>
+        </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" name="email" [(ngModel)]="form.email" required></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="form.password" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">confirm Password</ion-label>
+          <ion-input type="password" name="confirm" [(ngModel)]="form.confirm" required></ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label position="floating">phone number</ion-label>
+            <ion-input type="number" name="number" [(ngModel)]="form.number" required></ion-input>
+          </ion-item>
+
+        <ion-button color="primary" type="submit" expand="full" style="margin-top:20px;" [disabled]="!loginFormCreateAdmin.valid">Submit
+          &nbsp;<ion-icon name="person-add"></ion-icon></ion-button>
+      </form>
+
+</ion-content>

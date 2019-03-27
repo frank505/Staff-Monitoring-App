@@ -1,0 +1,78 @@
+
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons class="drawer_elem" slot="start">
+          <ion-back-button defaultHref="/admin/dashboard/user-profile/user-profile/view-users"></ion-back-button>
+        </ion-buttons>
+    <ion-title >Monthly Report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding >
+
+<div class="card-content-no-graph" *ngIf="financialReport.loaded">
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Current Balance</ion-card-subtitle>
+          <ion-card-title>Current Balance</ion-card-title>
+        </ion-card-header>
+      
+    
+        <ion-card-content>
+         <h3 style="color:indianred;">Current Balance this month</h3>
+         <h4 style="color:#3880ff;font-size:19px !important;">${{financialReport.data.data.salary_remainder }}</h4>
+        </ion-card-content>
+      </ion-card>
+      
+      <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Monthly Salary</ion-card-subtitle>
+            <ion-card-title>Monthly Salary</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+           <h3 style="color:indianred;">Monthly Salary</h3>
+           <h4 style="color:#3880ff;font-size:19px !important;">${{ financialReport.data.data.salary }}</h4>
+          </ion-card-content>
+        </ion-card>
+    
+        <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>Salary Deducted</ion-card-subtitle>
+              <ion-card-title>Salary Deducted</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+             <h3 style="color:indianred;">Salary Deducted this month</h3>
+             <h4 style="color:#3880ff;font-size:19px !important;">${{ financialReport.data.data.fine }}</h4>
+            </ion-card-content>
+          </ion-card>
+     
+</div>
+ 
+      <ion-card style="height:600px !important;">
+<!--          <ion-card-header>
+            Doughnut Chart
+          </ion-card-header>
+          <ion-card-content> -->
+            <div class="canvas-container" style="width:90vw !important;height: 75vh !important;">
+            <canvas  #doughnutCanvas></canvas>
+          </div>
+          <div *ngIf="financialReport.loaded">
+              <h3 style="text-align: center;width:100% !important;font-weight:bolder;">Salary Percentage</h3>
+                    <span>
+       <b>remainder</b><b style="color:#3880ff;font-weight:bolder;">:{{financialReport.data.data.salary_percentage_remainder}}%</b>
+       <b>Deducted</b><b style="color:#3880ff;font-weight:bolder;">:{{financialReport.data.data.fine_percentage}}%</b>
+                    </span>
+            </div>
+          <ion-item>
+         <ion-text><b style="color:indianred;text-decoration: underline;justify-content: center;">View Full financial history here</b> </ion-text>
+
+          </ion-item>
+          <!-- </ion-card-content>-->
+        </ion-card> 
+  
+  
+
+  
+</ion-content>

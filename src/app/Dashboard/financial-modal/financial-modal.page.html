@@ -1,0 +1,28 @@
+
+
+<ion-header >
+    <ion-toolbar>
+
+        <ion-title >{{modalTitle}}</ion-title>
+        
+                  <ion-buttons slot="end">
+            <ion-button style="color:white !important;" (click)="closeModal()">
+            CANCEL
+          </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+ 
+
+      <ion-item>
+          <ion-label position="floating" placeholder="Enter more information here..." >enter your complaints/reason of dissaproval to staffs</ion-label>
+          <ion-textarea [(ngModel)]="Complaints"></ion-textarea>
+        </ion-item>
+
+        <!-- Expand -->
+<ion-button expand="full" (click)="SubmitData()" >Submit</ion-button>
+
+
+</ion-content>

@@ -74,4 +74,36 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  ion-card{
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  
+  ion-title{
+    color:white;
+  }
+  .drawer_elem{
+    color:white;
+  }
+  ion-header{
+    --ion-background-color:#3880ff;
+    font-weight:bolder;
 }
+ion-title{
+    color:white;
+}
+.drawer_elem{
+    color:white;
+}
+
+ion-tab-bar{
+width:100vw;
+//background: #3880ff;
+}
+
+  
+}
+

@@ -1,0 +1,28 @@
+//   const loading = await this.loadingController.create({ message: 'please wait..',spinner:'bubbles' })
+  //   loading.present().then( () => {
+     
+  //     let responder = res.substring(7);
+  //   let header = new HttpHeaders();
+  //   header.set('Authorization', res);
+  //    header.set("Content-type","application/json");
+  //  // console.log(header.get('abc'));
+  //   let token = {
+  //     "token" :responder
+  //   };
+  //  // console.log(headers.get("Authorization")); 
+  //     this.http.postData(token,"/admin/profile", {headers : header}).subscribe(data=>{
+  //       if(data.hasOwnProperty("user")){
+  //         loading.dismiss();
+  //         this.authenticationState.next(true);   
+  //       }else{
+  //         this.authenticationState.next(false);
+  //         loading.dismiss();
+  //       }
+  //       console.log(data)
+  //     })
+
+  //       error => {
+  //         console.log(error)
+  //       loading.dismiss();
+  //      }
+  //       })

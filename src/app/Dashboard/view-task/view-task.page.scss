@@ -1,0 +1,21 @@
+ion-header{
+    --ion-background-color:#3880ff;
+    font-weight:bolder;
+}
+ion-title{
+    color:white;
+}
+.drawer_elem{
+    color:white;
+}
+ion-tab-bar{
+justify-content: left;
+overflow-x: scroll;
+}
+ion-tab-button{
+    background: #3880ff;color:white;
+}
+ion-tab-button:active{color:brown;}
+.toolbar-container{--ion-background-color: #3880ff !important;color:white !important;}
+ion-search-bar{--ion-background-color:  #3880ff !important;}
+.toolbar-background{--ion-background-color: #3880ff !important; color:white !important;}

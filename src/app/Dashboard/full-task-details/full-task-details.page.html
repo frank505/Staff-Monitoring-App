@@ -1,0 +1,55 @@
+<!-- <ion-header color="primary">
+  <ion-toolbar>
+      <ion-buttons class="drawer_elem" slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title color="primary">Task Details</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons class="drawer_elem" slot="start">
+          <ion-back-button defaultHref="/admin/dashboard/tasks/tasks/view-task"></ion-back-button>
+        </ion-buttons>
+    <ion-title >Task Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+<div *ngIf="dataHolder.loader">
+  <ion-item>
+    <ion-text style="font-size:90% !important;">Approve or dissapprove Task?</ion-text>
+      <ion-button fill="outline"  (click)="ShowConfirmAlert(dataHolder.task_data.id)"  slot="end"><ion-icon name="checkmark-circle"></ion-icon></ion-button>
+  </ion-item>
+    <ion-item>
+        
+      <!-- <ion-icon name="pin" slot="start"></ion-icon> -->
+      <h5><b>{{dataHolder.task_data.task_header}}</b></h5>
+    </ion-item>
+  
+    
+    <ion-item>
+      <ion-text style="font-size:90% !important;">{{dataHolder.task_data.task_content}}</ion-text><br>
+    </ion-item>
+    <ion-item>
+        <h6><b>Names Of Staffs For This Task</b></h6>
+    </ion-item>
+
+        <ion-list >
+      <div *ngFor="let staffs of dataHolder.parse_options" >
+       
+         <ion-item style="color:red;">*<b>{{staffs.name}}</b></ion-item>
+      </div>
+    </ion-list>
+
+    <ion-item>
+        <span *ngIf="dataHolder.task_data.attached_file != NULL" >
+        <ion-button (click)="DownloadAvailableFile(dataHolder.task_data.attached_file)" ><ion-icon name="download"></ion-icon></ion-button><ion-text style="color:red;">Download File</ion-text>&nbsp;&nbsp;</span>
+    </ion-item>
+</div>
+
+</ion-content>

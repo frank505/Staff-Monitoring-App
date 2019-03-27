@@ -1,0 +1,65 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>NewAdmin</ion-title>
+  </ion-toolbar>
+</ion-header>
+ -->
+
+ <ion-header color="primary">
+    <ion-toolbar>
+        <ion-buttons class="drawer_elem" slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+
+         
+      <ion-title color="primary">Create Task</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+     
+    <!-- https://github.com/eakoriakin/ionic-selectable/wiki -->
+      <ion-item>
+          <ion-label position="floating">Add a header for this task</ion-label>
+          <ion-input type="email" name="name" [(ngModel)]="header" required></ion-input>
+        </ion-item><br><br>
+
+      <ionic-selectable    #portComponent  item-content
+      [canSearch]="true"
+      (onChange)="LoadUsers($event)"
+      [isMultiple]="true"
+      [(ngModel)]="singleStaff"
+      itemValueField="id"
+      itemTextField="name"
+      [(items)]="data"
+      [hasInfiniteScroll]="true"
+      [isOnSearchEnabled]="true"
+      (onSearch)="searchStaffs($event)"
+      headerColor="primary"
+      [canClear]="true"
+      (onInfiniteScroll)="LoadMoreStaffs($event)"
+      >
+        </ionic-selectable>
+
+        
+      <ion-label><ion-text color="danger">
+          <h2 ><b><b>Please Select Staff(s)</b></b></h2>
+        </ion-text>
+          <ion-text color="dark">
+              <h5>click on the caret and search for staffs you want to assign a task to add them using the checkbox
+                that will be made available to you.
+              </h5>
+            </ion-text>
+      
+      </ion-label>
+      <ion-item>
+        <ion-label position="floating">enter the task here</ion-label>
+        <ion-textarea  [(ngModel)]="UserInstruction"></ion-textarea>
+        <label for="fileChooser"><b style="color:red" ><ion-icon name="document"></ion-icon>Attach a file</b></label>
+      </ion-item>
+          <input type="file" name=""  #resetFile ng2FileSelect [uploader]="uploader" id="fileChooser"  style="display:none" >
+      <ion-button color="primary" type="submit"  (click)="UploadTask()" expand="full" style="margin-top:20px;">Submit
+        &nbsp;<ion-icon name="person-add"></ion-icon></ion-button>
+
+  </ion-content>
+  

@@ -1,12 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="bg-style"  padding>
+  <ion-img src="../../../assets/images/logo_css.png" style="margin-bottom:40px;"></ion-img>
+  <form #loginForm=ngForm   (ngSubmit)="Login()">
+      <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="form.email" required></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" name="password" [(ngModel)]="form.password" required></ion-input>
+          </ion-item>
+          <ion-button color="primary" type="submit" expand="full" style="margin-top:20px;" [disabled]="!loginForm.valid">Login 
+            &nbsp;<ion-icon name="log-in"></ion-icon></ion-button>
+        </form>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
 </ion-content>
