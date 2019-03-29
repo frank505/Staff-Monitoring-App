@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {HttpService} from '../../services/http.service';
 import { AuthenticationServiceService } from "../../services/authentication-service.service";
-import { LoadingController, ModalController } from '@ionic/angular';
+import { LoadingController, ModalController,NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { AlertService } from "../../services/alert.service";
 import { ToastService } from '../../services/toast.service';
@@ -10,6 +10,7 @@ import { FileTransfer,FileTransferObject } from '@ionic-native/file-transfer/ngx
 import { File } from '@ionic-native/file/ngx';
 import {  AlertController } from '@ionic/angular';
 import { FinancialModalPage } from '../financial-modal/financial-modal.page';
+
 
 
 @Component({
@@ -27,6 +28,7 @@ export class FullTaskDetailsPage implements OnInit {
      parse_options:null,
      loader:false,
      approval_text:null,
+     error:null
    }
 
    public dissaprove = {
@@ -45,20 +47,28 @@ export class FullTaskDetailsPage implements OnInit {
      private storage:Storage,private alert:AlertService,
      private route:ActivatedRoute,
      private transfer: FileTransfer, private file: File,
-     private alertctrl:AlertController, public modalController: ModalController) { 
-       this.getId();
-       this.loadFullTask();
+     private alertctrl:AlertController, public modalController: ModalController,
+     public navCtrl:NavController) { 
+       
       
      }
 
   ngOnInit() {
+    this.getId();
+    this.loadFullTask();    
   }
+  
+ngAfterViewInit()
+{
+
+}
 
   getId()
   {
     this.route.params.subscribe(
       params=> this.parameters = params
     );
+    console.log(this.parameters.id)
     return this.parameters.id;
   }
 
@@ -82,12 +92,12 @@ export class FullTaskDetailsPage implements OnInit {
         
         },
         error =>{
-          this.dataHolder.loader = true;
+          this.dataHolder.error = error;
           loading.dismiss();
           console.log(error);
           
-         this.alert.presentAlert("error","profile error","an error occured trying to load your profile details");
-  
+         this.alert.presentAlert("error","profile error",this.dataHolder.error.error.message);
+        
         }
         
         
@@ -300,6 +310,14 @@ export class FullTaskDetailsPage implements OnInit {
   });
 
  }
+
+
+ MoveBack()
+ {
+   this.navCtrl.pop();
+ }
+
+
 
 }
 

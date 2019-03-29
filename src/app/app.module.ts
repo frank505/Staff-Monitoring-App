@@ -18,13 +18,16 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import {FinancialModalPageModule} from '../app/Dashboard/financial-modal/financial-modal.module';
+import {FinancialHistoryModalPageModule} from '../app/Dashboard/financial-history-modal/financial-history-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     FormsModule,HttpClientModule, IonicStorageModule.forRoot(),
-  IonicSelectableModule,FileUploadModule,FinancialModalPageModule],
+  IonicSelectableModule,FileUploadModule,FinancialModalPageModule,
+  FinancialHistoryModalPageModule
+],
   providers: [
     HttpService,
     Auth,

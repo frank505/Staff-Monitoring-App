@@ -7,7 +7,7 @@ import { LoadingController, ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { AlertService } from "../../services/alert.service";
 import { ToastService } from '../../services/toast.service';
-
+import {FinancialHistoryModalPage} from '../../Dashboard/financial-history-modal/financial-history-modal.page';
 
 @Component({
   selector: 'app-financial-report',
@@ -31,7 +31,8 @@ export class FinancialReportPage implements OnInit {
     private authService:AuthenticationServiceService,
     private loadingController:LoadingController,
      private toast:ToastService,
-     private storage:Storage,private alert:AlertService) { 
+     private storage:Storage,private alert:AlertService,
+     private modalController:ModalController) { 
   this.getId();
   this.getMonthlyReport();
   }
@@ -118,7 +119,26 @@ export class FinancialReportPage implements OnInit {
   }
 
 
-
+  async LoadModalHistory(id)
+  {
+    const modal = await this.modalController.create({
+      component: FinancialHistoryModalPage,
+      componentProps: {
+        "Header": "Discipline History",
+        "userId" : id,
+        "error_message":null,
+        "success_message":null,
+      }
+    });
+ 
+    modal.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        console.log('Modal Sent Data :', dataReturned);
+      }
+    });
+ 
+    return await modal.present();
+  }
 
 
 

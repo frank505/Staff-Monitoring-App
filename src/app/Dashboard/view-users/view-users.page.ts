@@ -271,7 +271,7 @@ export class ViewUsersPage implements OnInit {
       header: 'User Details',
       buttons: [
         {
-        text: 'Staff full profile',
+        text: 'Staff profile',
         icon: 'people',
         handler: () => {
          this.router.navigate(['/admin/dashboard/user-profile/user-profile/view-user', {id:id}])
@@ -283,7 +283,7 @@ export class ViewUsersPage implements OnInit {
           console.log('Share clicked');
         }
       }, {
-        text: 'Monthly Salary Details',
+        text: 'Financial Discipline Details',
         icon: 'cash',
         handler: () => {
          this.router.navigate(["/admin/dashboard/user-profile/user-profile/financial-report",{id:id}])

@@ -127,9 +127,10 @@ DownloadAvailableFile(attached_file)
     });
   }
 
-  onChange(files) {
-    console.log(files);
-  }
+  //getting files by creating a viewchild as a string
+  // onChange(files) { 
+  //   console.log(files);
+  // }
 
   UpdateTask(id)
   {
