@@ -24,7 +24,11 @@ export class HomePage {
     private authService:AuthenticationServiceService,
      private loadingController:LoadingController,private toast:ToastService) { }
 
-  
+
+     ngOnInit() {
+
+    }
+
  //this is a login function which is asynchronous
  async Login()
   {
@@ -53,7 +57,8 @@ export class HomePage {
 
   }
 
-
+ 
+  
 
 
 }

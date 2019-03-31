@@ -26,12 +26,11 @@ export class AppComponent {
       this.splashScreen.hide();
       this.authService.checkToken();
    this.authService.authenticationState.subscribe(state=>{
-     if(state){
-       if(state==true){
-        this.router.navigate(["/admin/dashboard/home"]);
-       }else{
-        this.router.navigate(["home"]);  
-       }
+     if(!state){
+      this.router.navigate(["home"]);   
+     }else{
+      
+      this.router.navigate(["/admin/dashboard/home"]);
      }
      
    })
