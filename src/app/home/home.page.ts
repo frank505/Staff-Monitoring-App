@@ -4,6 +4,7 @@ import {HttpService} from '../services/http.service';
 import { AuthenticationServiceService } from "../services/authentication-service.service";
 import { LoadingController } from '@ionic/angular';
 import { ToastService } from "../services/toast.service";
+import {PushServiceService} from '../services/push-service.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,8 @@ export class HomePage {
   constructor(
     private http:HttpService,private router:Router,
     private authService:AuthenticationServiceService,
-     private loadingController:LoadingController,private toast:ToastService) { }
+     private loadingController:LoadingController,private toast:ToastService,
+    private push:PushServiceService) { }
 
 
      ngOnInit() {
@@ -42,6 +44,8 @@ export class HomePage {
           this.data_response = data;
            if(this.data_response.success == true){
                this.authService.login(this.data_response.token);
+              this.push.getToken();
+              this.push.refreshToken();
                loading.dismiss();
               
            }

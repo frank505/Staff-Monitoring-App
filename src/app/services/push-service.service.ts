@@ -29,6 +29,7 @@ async getToken()
  let user_token =  this.authService.returnTokenPlaceholder();
  let data =  {
    push_token:token,
+   token:user_token
  }  //send token to the server to either insert or update
     this.http.postData(data,"/admin/save-push-token",user_token).subscribe((res)=>{
       console.log(res)
@@ -44,6 +45,7 @@ async refreshToken()
     let user_token =  this.authService.returnTokenPlaceholder();
     let data =  {
       push_token:token,
+      token:user_token
     }  //send token to the server to either insert or update
        this.http.postData(data,"/admin/save-push-token",user_token).subscribe((res)=>{
          console.log(res)
@@ -54,8 +56,8 @@ async refreshToken()
 
 sendPushNotificationTest()
 {
-  this.getToken();
-  this.refreshToken();
+  // this.getToken();
+  // this.refreshToken();
   this.fcm.onNotification().subscribe(data => {
     console.log(data);
     if (data.wasTapped) {
