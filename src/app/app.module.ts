@@ -19,6 +19,20 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 import { File } from '@ionic-native/file/ngx';
 import {FinancialModalPageModule} from '../app/Dashboard/financial-modal/financial-modal.module';
 import {FinancialHistoryModalPageModule} from '../app/Dashboard/financial-history-modal/financial-history-modal.module';
+import { FCM} from '@ionic-native/fcm/ngx';
+import { Firebase } from '@ionic-native/firebase/ngx';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+ // Initialize Firebase
+ const config = {
+  apiKey: "AIzaSyC3PDcNqD1bAFSsHdF8-JLSAxxX-HVH0h8",
+  authDomain: "staff-cleversoft.firebaseapp.com",
+  databaseURL: "https://staff-cleversoft.firebaseio.com",
+  projectId: "staff-cleversoft",
+  storageBucket: "staff-cleversoft.appspot.com",
+  messagingSenderId: "912265914417"
+};
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +40,8 @@ import {FinancialHistoryModalPageModule} from '../app/Dashboard/financial-histor
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     FormsModule,HttpClientModule, IonicStorageModule.forRoot(),
   IonicSelectableModule,FileUploadModule,FinancialModalPageModule,
-  FinancialHistoryModalPageModule
+  FinancialHistoryModalPageModule,AngularFireModule.initializeApp(config), 
+  AngularFirestoreModule,
 ],
   providers: [
     HttpService,
@@ -37,6 +52,8 @@ import {FinancialHistoryModalPageModule} from '../app/Dashboard/financial-histor
     FileTransferObject,
     FormBuilder,
     SplashScreen,LoadingService,
+    FCM,
+    Firebase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

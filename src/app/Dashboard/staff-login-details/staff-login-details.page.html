@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons class="drawer_elem" slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Staff Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
+<!-- Searchbar with a cancel button and custom cancel button text -->
+
+
+
+      <ion-list >
+        <ion-item *ngIf="loaded">
+       <ion-text color="medium"><b>Staffs Who have Logged In Today <span style="color:indianred"> ({{response.data.date}}th of {{response.data.month}} {{response.data.year}})</span></b></ion-text>
+        </ion-item>
+        <div class="content" *ngIf="loaded">
+            <ion-item-sliding *ngFor="let staffs of response.data.logged_in" >
+                <ion-item  class="change_color"  >
+                  <ion-label><b><b>{{staffs.staff_name}}</b></b></ion-label>
+                  <ion-item-options side="end">
+                  <ion-item-option (click)="goToTaskDetails(first_key)">View Full Details</ion-item-option>
+                </ion-item-options>
+                </ion-item>
+              </ion-item-sliding>
+
+        </div>
+        
+      </ion-list>
+      <ion-item *ngIf="loaded">
+          <ion-text color="medium"><b>Staffs Yet To Login Today
+            <span style="color:indianred"> ({{response.data.date}}th of {{response.data.month}} {{response.data.year}})</span>
+          </b></ion-text>
+          <ion-button fill="outline"  (click)="LoadModalHistory(parameters.id)"  slot="end"><ion-icon name="cash"></ion-icon></ion-button>
+           </ion-item>
+           <div class="content" *ngIf="loaded">
+              <ion-item-sliding *ngFor="let staffs of response.data.not_logged_in" >
+                  <ion-item  class="change_color"  >
+                    <ion-label><b><b>{{staffs.staff_name}}</b></b></ion-label>
+                    <ion-item-options side="end">
+                    <ion-item-option (click)="goToTaskDetails(first_key)">View Full Details</ion-item-option>
+                  </ion-item-options>
+                  </ion-item>
+                </ion-item-sliding>
+  
+          </div>
+      <ion-list>
+   
+
+
+
+
+      </ion-list>
+
+
+
+  
+    <!-- fab placed to the bottom end -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="search"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  
+  
+</ion-content>
+

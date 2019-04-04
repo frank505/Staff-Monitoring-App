@@ -25,6 +25,10 @@ const routes: Routes = [
       {
         path: 'tasks',
         loadChildren: '../../Dashboard/tasks/tasks.module#TasksPageModule',
+      },
+      {
+        path:'staff-login-details',
+        loadChildren:'../../Dashboard/staff-login-details/staff-login-details.module#StaffLoginDetailsPageModule'
       }
     ]
   }

@@ -31,6 +31,11 @@ export class MenuPage implements OnInit {
       title:'tasks',
       url:'/admin/dashboard/tasks',
       icon:'create'
+    },
+    {
+      title:'staffs login',
+      url:'/admin/dashboard/staff-login-details',
+      icon:'people'
     }
   ];
 

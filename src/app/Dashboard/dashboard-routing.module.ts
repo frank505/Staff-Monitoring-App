@@ -5,6 +5,7 @@ const routes: Routes = [
   
   { path: 'dashboard', loadChildren: '../Dashboard/menu/menu.module#MenuPageModule' },
   { path: 'financial-history-modal', loadChildren: '../Dashboard/financial-history-modal/financial-history-modal.module#FinancialHistoryModalPageModule' },
+ 
   // { path: 'financial-report', loadChildren: '../Dashboard/financial-report/financial-report.module#FinancialReportPageModule' },
   // { path: 'financial-modal', loadChildren: '../Dashboard/financial-modal/financial-modal.module#FinancialModalPageModule' },
  // { path: 'full-task-details', loadChildren: './full-task-details/full-task-details.module#FullTaskDetailsPageModule' },

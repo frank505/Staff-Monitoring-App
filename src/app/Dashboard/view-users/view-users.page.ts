@@ -151,6 +151,7 @@ export class ViewUsersPage implements OnInit {
       error =>{
         console.log(error);
        this.alert.presentAlert("error","profile error","an error occured trying to load your profile details");
+       event.target.complete();
       }
     
       )

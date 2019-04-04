@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "912265914417",
+    "firebase_url": "https://staff-cleversoft.firebaseio.com",
+    "project_id": "staff-cleversoft",
+    "storage_bucket": "staff-cleversoft.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912265914417:android:63087cf342e0f7f1",
+        "android_client_info": {
+          "package_name": "com.cleversoft.myproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA5pRZbtEBJvXtdZfl5NOfytpLSeSuuXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912265914417-7oamgs12j9k7n453okl2nh0cf428homk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
