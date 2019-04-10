@@ -1,0 +1,48 @@
+<ion-header >
+    <ion-toolbar>
+        <ion-buttons class="drawer_elem" slot="start">
+            <ion-back-button defaultHref="/admin/dashboard/staff-login-details" ></ion-back-button>
+          </ion-buttons>
+      <ion-title > Login Details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content padding>
+
+    <ion-card *ngIf="loaded">
+
+        <ion-card-header>
+            <ion-card-subtitle>Login Details  </ion-card-subtitle>
+            <ion-card-title><b>Login Details</b>&nbsp;&nbsp; <ion-button fill="outline"  shape="round" 
+              (click)="PunishStaff(LoginDetails.data[0].staff_id);" ><ion-icon name="cash"></ion-icon></ion-button>    </ion-card-title>
+          </ion-card-header>
+  
+          <ion-card-content *ngIf="loaded" >
+
+              
+
+        <ion-item  class="activated">
+          <h2 color="medium">Staff Name: &nbsp;&nbsp;</h2>
+          <ion-label><b><b style="color:indianred;">{{LoginDetails.data[0].staff_name}}</b></b></ion-label>
+        </ion-item>
+      
+        
+        <ion-item  class="activated">
+            <h2 color="medium">Time Of Login: &nbsp;&nbsp;</h2>
+            <ion-label><b><b style="color:indianred;">{{LoginDetails.data[0].time}}</b></b></ion-label>
+          </ion-item>
+        
+          <ion-item  class="activated">
+              <h2 color="medium">Date: &nbsp;&nbsp;</h2>
+              <ion-label><b><b style="color:indianred;">{{LoginDetails.data[0].date}}th,{{LoginDetails.data[0].day}}
+                {{LoginDetails.data[0].month}} &nbsp; {{LoginDetails.data[0].year}}</b></b></ion-label>
+            </ion-item>
+  
+
+
+      </ion-card-content>
+      </ion-card>
+  
+
+
+</ion-content>

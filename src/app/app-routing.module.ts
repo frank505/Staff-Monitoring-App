@@ -4,12 +4,13 @@ import { AuthGaurdService } from './services/auth-gaurd.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'admin/dashboard/home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  {
+   {
     path:"admin",
     loadChildren:"./Dashboard/dashboard-routing.module#DashboardRoutingModule",
     canActivate:[AuthGaurdService],
   },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+
   { path: 'initializer', loadChildren: './initializer/initializer.module#InitializerPageModule' },
  
 ];

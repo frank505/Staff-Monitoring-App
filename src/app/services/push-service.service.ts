@@ -7,12 +7,13 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import {ToastService} from './toast.service';
 import {HttpService} from './http.service';
 import {AuthenticationServiceService} from './authentication-service.service';
+import { Storage } from '@ionic/storage';
 @Injectable({
   providedIn: 'root'
 })
 export class PushServiceService {
 
-
+ user_token:any;
 
   constructor(private fcm:FCM,private router:Router,
     private firebase: Firebase,
@@ -20,39 +21,57 @@ export class PushServiceService {
               private platform: Platform,
               private toast:ToastService,
               private http:HttpService,
-              private authService:AuthenticationServiceService) { }
+              private authService:AuthenticationServiceService,
+              private storage:Storage) { }
 
   
 async getToken()
 {
+  let tokenPlaceHolder =  this.authService.returnTokenPlaceholder();
+  this.storage.get(tokenPlaceHolder).then((token)=>{
+  this.user_token = token;
+  console.log(this.user_token);
   this.fcm.getToken().then(token => {
- let user_token =  this.authService.returnTokenPlaceholder();
  let data =  {
    push_token:token,
-   token:user_token
+   token:this.user_token
  }  //send token to the server to either insert or update
-    this.http.postData(data,"/admin/save-push-token",user_token).subscribe((res)=>{
+    this.http.postData(data,"/admin/save-push-token",this.user_token).subscribe((res)=>{
       console.log(res)
     })
     console.log(token);
 
   });
+  })
+
+ 
 }
 
 async refreshToken()
 {
+  let tokenPlaceHolder =  this.authService.returnTokenPlaceholder();
+  this.storage.get(tokenPlaceHolder).then((token)=>{
+  this.user_token = token;
+  console.log(this.user_token);
   this.fcm.onTokenRefresh().subscribe(token => {
-    let user_token =  this.authService.returnTokenPlaceholder();
     let data =  {
       push_token:token,
-      token:user_token
+      token:this.user_token
     }  //send token to the server to either insert or update
-       this.http.postData(data,"/admin/save-push-token",user_token).subscribe((res)=>{
+       this.http.postData(data,"/admin/save-push-token",this.user_token).subscribe((res)=>{
          console.log(res)
-       })
+       });
        console.log(token);
   });
+ 
+  });
+ }
+
+subscriptionToAll()
+{
+  this.fcm.subscribeToTopic("all");
 }
+
 
 sendPushNotificationTest()
 {

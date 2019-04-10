@@ -31,6 +31,7 @@ export class AppComponent {
       //this.push.refreshToken();
       //this.push.sendPush();
      // this.push.notificationSetup();
+     this.push.subscriptionToAll();
      this.push.sendPushNotificationTest();
       this.authService.checkToken();
    this.authService.authenticationState.subscribe(state=>{

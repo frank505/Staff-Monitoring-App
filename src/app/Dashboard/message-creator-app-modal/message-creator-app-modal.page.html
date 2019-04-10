@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Message App Creator</ion-title>
+    <ion-buttons slot="end">
+        <ion-button style="color:white !important;" (click)="closeModal()">
+        CANCEL
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form #SendAppCreatorMessage=ngForm   (ngSubmit)="Login()">
+        <ion-item>
+            <ion-label position="floating">Company name</ion-label>
+            <ion-input type="name" name="name" [(ngModel)]="form.name" required></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">Company email</ion-label>
+              <ion-input type="email" name="email" [(ngModel)]="form.email" required></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+                <ion-label position="floating">enter message</ion-label>
+                <ion-textarea name="message" [(ngModel)]="form.message"></ion-textarea>
+              </ion-item>
+
+
+            <ion-button color="primary" type="submit" shape="round" expand="full" style="margin-top:20px;" [disabled]="!SendAppCreatorMessage.valid">Login 
+              &nbsp;<ion-icon name="log-in"></ion-icon></ion-button>
+          </form>
+
+
+
+
+</ion-content>

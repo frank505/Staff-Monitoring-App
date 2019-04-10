@@ -278,12 +278,6 @@ export class ViewUsersPage implements OnInit {
          this.router.navigate(['/admin/dashboard/user-profile/user-profile/view-user', {id:id}])
         }
       }, {
-        text: 'login feedback',
-        icon: 'log-in',
-        handler: () => {
-          console.log('Share clicked');
-        }
-      }, {
         text: 'Financial Discipline Details',
         icon: 'cash',
         handler: () => {

@@ -314,7 +314,8 @@ ngAfterViewInit()
 
  MoveBack()
  {
-   this.navCtrl.pop();
+   this.navCtrl.back();
+  
  }
 
 

@@ -30,7 +30,7 @@ export class MenuPage implements OnInit {
     {
       title:'tasks',
       url:'/admin/dashboard/tasks',
-      icon:'create'
+      icon:'add-circle'
     },
     {
       title:'staffs login',

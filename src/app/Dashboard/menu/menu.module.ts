@@ -29,6 +29,10 @@ const routes: Routes = [
       {
         path:'staff-login-details',
         loadChildren:'../../Dashboard/staff-login-details/staff-login-details.module#StaffLoginDetailsPageModule'
+      },
+      {
+        path:'staff-full-login-details',
+        loadChildren:'../../Dashboard/staff-full-login-details/staff-full-login-details.module#StaffFullLoginDetailsPageModule'
       }
     ]
   }

@@ -23,7 +23,8 @@ import { FCM} from '@ionic-native/fcm/ngx';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-
+import {StaffLoginDetailsSearchModalPageModule} from 'src/app/Dashboard/staff-login-details-search-modal/staff-login-details-search-modal.module';
+import {MessageCreatorAppModalPageModule} from 'src/app/Dashboard/message-creator-app-modal/message-creator-app-modal.module';
  // Initialize Firebase
  const config = {
   apiKey: "AIzaSyC3PDcNqD1bAFSsHdF8-JLSAxxX-HVH0h8",
@@ -37,11 +38,20 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    FormsModule,HttpClientModule, IonicStorageModule.forRoot(),
-  IonicSelectableModule,FileUploadModule,FinancialModalPageModule,
-  FinancialHistoryModalPageModule,AngularFireModule.initializeApp(config), 
+  imports: [BrowserModule, 
+    IonicModule.forRoot(),
+     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+     IonicStorageModule.forRoot(),
+  IonicSelectableModule,
+  FileUploadModule,
+  FinancialModalPageModule,
+  FinancialHistoryModalPageModule,
+  AngularFireModule.initializeApp(config), 
   AngularFirestoreModule,
+  StaffLoginDetailsSearchModalPageModule,
+  MessageCreatorAppModalPageModule
 ],
   providers: [
     HttpService,

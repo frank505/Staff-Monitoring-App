@@ -75,9 +75,14 @@ public response = {
 
  async goToTaskDetails(id)
   {
+    console.log(id)
    this.closeModal();
-   await this.router.navigate(["admin/dashboard/tasks/tasks/full-task-details",{id:id}]);
- 
+   if(id!=0){
+    await this.router.navigate(["admin/dashboard/tasks/tasks/full-task-details",{id:id}]);
+   }else{
+     await this.router.navigate(["admin/dashboard/staff-login-details"]);
+   }
+   
   }
 
   ///get-year/{id}

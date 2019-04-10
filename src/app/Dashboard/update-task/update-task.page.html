@@ -22,14 +22,14 @@
         <label for="fileChooserSubmit"><b style="color:red" ><ion-icon name="document"></ion-icon>Attach a file</b></label>
       </ion-item>
           <input type="file" name=""  #resetFile ng2FileSelect [uploader]="uploader" id="fileChooserSubmit"  style="display: none;" >
-      <ion-button color="primary" type="submit"  (click)="UpdateTask(dataHolder.task_data.id)" expand="full" style="margin-top:20px;">Submit
+      <ion-button color="primary" shape="round" type="submit"  (click)="UpdateTask(dataHolder.task_data.id)" expand="full" style="margin-top:20px;">Submit
         &nbsp;<ion-icon name="person-add"></ion-icon></ion-button><br>
 
         <!-- <input type="file" #file (change)="onChange(file.files)"/> -->
 
         <ion-item>
           <span *ngIf="dataHolder.task_data.attached_file != NULL" >
-          <ion-button (click)="DownloadAvailableFile(dataHolder.task_data.attached_file)" ><ion-icon name="download"></ion-icon></ion-button><ion-text style="color:red;">Download File</ion-text>&nbsp;&nbsp;</span>
+          <ion-button  shape="round" (click)="DownloadAvailableFile(dataHolder.task_data.attached_file)" ><ion-icon name="download"></ion-icon></ion-button><ion-text style="color:red;">Download File</ion-text>&nbsp;&nbsp;</span>
       </ion-item>
 
 </ion-content>

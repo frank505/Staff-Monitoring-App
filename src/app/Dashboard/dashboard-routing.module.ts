@@ -4,7 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   
   { path: 'dashboard', loadChildren: '../Dashboard/menu/menu.module#MenuPageModule' },
-  { path: 'financial-history-modal', loadChildren: '../Dashboard/financial-history-modal/financial-history-modal.module#FinancialHistoryModalPageModule' },
+  { path: 'message-creator-app-modal', loadChildren: '../Dashboard/message-creator-app-modal/message-creator-app-modal.module#MessageCreatorAppModalPageModule' },
+  // { path: 'staff-login-details-search-modal', loadChildren: '../Dashboard/staff-login-details-search-modal/staff-login-details-search-modal.module#StaffLoginDetailsSearchModalPageModule' },
+  // { path: 'financial-history-modal', loadChildren: '../Dashboard/financial-history-modal/financial-history-modal.module#FinancialHistoryModalPageModule' },
+  // { path: 'staff-full-login-details', loadChildren: './staff-full-login-details/staff-full-login-details.module#StaffFullLoginDetailsPageModule' },
  
   // { path: 'financial-report', loadChildren: '../Dashboard/financial-report/financial-report.module#FinancialReportPageModule' },
   // { path: 'financial-modal', loadChildren: '../Dashboard/financial-modal/financial-modal.module#FinancialModalPageModule' },

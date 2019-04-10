@@ -1,4 +1,4 @@
-<ion-content class="bg-style"  padding>
+<ion-content class="bg-style"  padding *ngIf="stateChecker">
   <ion-img src="../../../assets/images/logo_css.png" style="margin-bottom:40px;"></ion-img>
   <form #loginForm=ngForm   (ngSubmit)="Login()">
       <ion-item>
@@ -9,7 +9,7 @@
             <ion-label position="floating">Password</ion-label>
             <ion-input type="password" name="password" [(ngModel)]="form.password" required></ion-input>
           </ion-item>
-          <ion-button color="primary" type="submit" expand="full" style="margin-top:20px;" [disabled]="!loginForm.valid">Login 
+          <ion-button color="primary" type="submit" expand="full" shape="round" style="margin-top:20px;" [disabled]="!loginForm.valid">Login 
             &nbsp;<ion-icon name="log-in"></ion-icon></ion-button>
         </form>
 

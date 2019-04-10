@@ -51,7 +51,7 @@
           </ion-list>
         
 
-          <ion-button color="primary" type="submit"  (click)="SearchForUser()" expand="full" style="margin-top:20px;">Submit
+          <ion-button color="primary" type="submit" shape="round" (click)="SearchForUser()" expand="full" style="margin-top:20px;">Submit
               &nbsp;<ion-icon name="search"></ion-icon></ion-button>
         
 
@@ -77,11 +77,18 @@
        <ion-row>
           <ion-col size="12" style="font-size:14px;" *ngFor="let third_key of response.success.message[first_key]" >
             
-              <span *ngIf="third_key.name==response.username" color="medium">on the {{third_key.day_of_the_month}} of
+              <span *ngIf="third_key.name==response.username && third_key.task_id !=0" color="medium">on the {{third_key.day_of_the_month}} of
                   {{third_key.month}},{{third_key.year}} on a {{third_key.day}}  task given staffs  was dissapproved.
-             and the sum of {{third_key.fine}} was removed from salary({{third_key.salary}}) of {{response.username}}
+             and the sum of {{third_key.fine}} was removed from salary({{third_key.salary}}) of <b style="color:indianred;">{{response.username}}</b>
              along with the following staffs:
               </span>
+              <span *ngIf="third_key.name==response.username && third_key.task_id ==0">
+                on the {{third_key.day_of_the_month}} of
+                {{third_key.month}},{{third_key.year}} on a {{third_key.day}} attendance for the day was dissaproved for either late
+                coming or not coming at all.
+           and the sum of {{third_key.fine}} was removed from salary({{third_key.salary}}) of <b style="color:indianred;">{{response.username}}</b>
+             </span>
+
          </ion-col>
         
    
@@ -122,7 +129,14 @@
       </ion-item>
 
       <ion-item-options side="end">
-          <ion-item-option (click)="goToTaskDetails(first_key)">Task</ion-item-option>
+          <ion-item-option (click)="goToTaskDetails(first_key)">
+            <span *ngIf="first_key!=0">
+                Task
+            </span>
+              <span *ngIf="first_key==0">
+                Login Details
+              </span>
+            </ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
       </div>

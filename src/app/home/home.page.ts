@@ -19,7 +19,7 @@ export class HomePage {
   }
   
   data_response:any;
-  
+  private stateChecker:boolean = false;
   constructor(
     private http:HttpService,private router:Router,
     private authService:AuthenticationServiceService,
@@ -28,7 +28,7 @@ export class HomePage {
 
 
      ngOnInit() {
-
+   this.redirect();
     }
 
  //this is a login function which is asynchronous
@@ -44,10 +44,9 @@ export class HomePage {
           this.data_response = data;
            if(this.data_response.success == true){
                this.authService.login(this.data_response.token);
-              this.push.getToken();
-              this.push.refreshToken();
                loading.dismiss();
-              
+             // setTimeout(() => {
+              //}, 15000);
            }
           
          
@@ -61,7 +60,20 @@ export class HomePage {
 
   }
 
+  redirect()
+  {
+   this.authService.authenticationState.subscribe(state=>{
+     if(!state){
+       this.stateChecker = true;
+      this.router.navigate(["home"]);   
  
+     }else{
+      this.stateChecker = false;
+      this.router.navigate(["/admin/dashboard/home"]);
+     }
+     
+   })
+  } 
   
 
 
