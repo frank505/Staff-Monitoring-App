@@ -92,20 +92,17 @@
 // }
 
   ion-title{
-  color:white;
+  color:#222428;
   }
   .drawer_elem{
+    color:#222428;
+  }
+  .drawer_elem_none{
     color:white;
   }
   ion-header{
-    --ion-background-color:#10dc60;
+    --ion-background-color:transparent;
     font-weight:bolder;
-}
-ion-title{
-    color:white;
-}
-.drawer_elem{
-    color:white;
 }
 
 ion-tab-bar{

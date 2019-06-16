@@ -20,12 +20,15 @@ import { File } from '@ionic-native/file/ngx';
 import {FinancialModalPageModule} from '../app/Dashboard/financial-modal/financial-modal.module';
 import {FinancialHistoryModalPageModule} from '../app/Dashboard/financial-history-modal/financial-history-modal.module';
 import { FCM} from '@ionic-native/fcm/ngx';
-import { Firebase } from '@ionic-native/firebase/ngx';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+//import { Firebase } from '@ionic-native/firebase/ngx';
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
 import {StaffLoginDetailsSearchModalPageModule} from 'src/app/Dashboard/staff-login-details-search-modal/staff-login-details-search-modal.module';
 import {MessageCreatorAppModalPageModule} from 'src/app/Dashboard/message-creator-app-modal/message-creator-app-modal.module';
- // Initialize Firebase
+import { PhotoViewer} from '@ionic-native/photo-viewer/ngx'; // Initialize Firebase
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions/ngx';
+
  const config = {
   apiKey: "AIzaSyC3PDcNqD1bAFSsHdF8-JLSAxxX-HVH0h8",
   authDomain: "staff-cleversoft.firebaseapp.com",
@@ -48,8 +51,8 @@ import {MessageCreatorAppModalPageModule} from 'src/app/Dashboard/message-creato
   FileUploadModule,
   FinancialModalPageModule,
   FinancialHistoryModalPageModule,
-  AngularFireModule.initializeApp(config), 
-  AngularFirestoreModule,
+  // AngularFireModule.initializeApp(config), 
+  // AngularFirestoreModule,
   StaffLoginDetailsSearchModalPageModule,
   MessageCreatorAppModalPageModule
 ],
@@ -63,7 +66,10 @@ import {MessageCreatorAppModalPageModule} from 'src/app/Dashboard/message-creato
     FormBuilder,
     SplashScreen,LoadingService,
     FCM,
-    Firebase,
+    PhotoViewer,
+    InAppBrowser,
+    NativePageTransitions,
+   // Firebase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

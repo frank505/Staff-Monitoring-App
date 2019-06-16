@@ -64,7 +64,7 @@ export class FinancialModalPage implements OnInit {
           complaints:this.Complaints,
           id:this.taskId,
         }
-        this.http.postData(item,"/admin/lay-complaints/",token).subscribe(subscribed_data=>{
+        this.http.postData(item,"/admin/lay-complaints",token).subscribe(subscribed_data=>{
         console.log(subscribed_data)
         this.success_message = subscribed_data;
         if(this.success_message.hasOwnProperty("complaints_exist")){
@@ -142,7 +142,7 @@ export class FinancialModalPage implements OnInit {
           complaints:this.Complaints,
           id:this.taskId,
         }
-        this.http.postData(item,"/admin/update-complaints/",token).subscribe(subscribed_data=>{
+        this.http.postData(item,"/admin/update-complaints",token).subscribe(subscribed_data=>{
         console.log(subscribed_data)
         this.success_message = subscribed_data;
   

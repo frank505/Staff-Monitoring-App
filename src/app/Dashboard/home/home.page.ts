@@ -3,7 +3,8 @@ import { Router} from '@angular/router';
 import { PushServiceService } from 'src/app/services/push-service.service';
 import { AuthenticationServiceService } from "src/app/services/authentication-service.service";
 import {MessageCreatorAppModalPage} from 'src/app/Dashboard/message-creator-app-modal/message-creator-app-modal.page';
-import {ModalController} from '@ionic/angular';
+import {ModalController, NavController} from '@ionic/angular';
+import { NativePageTransitions,NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,17 @@ export class HomePage implements OnInit {
   private showContent:boolean = false;
  private year:any;
  private date:any;
+  options:NativeTransitionOptions = {
+    direction:"left",
+    duration: 200,
+  }
 
   constructor(private router:Router,
     private push:PushServiceService,
     private authService:AuthenticationServiceService,
-    private modalController:ModalController) 
+    private modalController:ModalController,
+    private nativePageTransitions:NativePageTransitions,
+    private navCtrl:NavController) 
   {
    // this.push.getToken();
    // this.push.refreshToken();
@@ -30,6 +37,13 @@ export class HomePage implements OnInit {
   }
 
  
+LoadPage(url)
+{
+  this.nativePageTransitions.slide(this.options);
+  //this.navCtrl.navigateRoot(url);
+  this.navCtrl.navigateForward(url);
+}
+
   setYear()
   {
     this.date = new Date();

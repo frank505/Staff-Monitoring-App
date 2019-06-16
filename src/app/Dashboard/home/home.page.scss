@@ -1,3 +1,18 @@
-.ion-resize{font-size:300%;}
+.ion-resize{font-size:400%;}
 .ion-item-link{font-size:15px;color:black !important;}
 .h3-service{border-bottom:2px solid black;}
+.image-content{top:0;height:240px;background:black;left:0;right:0;position: absolute;
+background-image: url("../../../assets/images/latest_img_cleversoftware.jpg");}
+.overlay-shadow{
+    top:0;height:240px;background:black;left:0;right:0;position: absolute;opacity:.8;z-index:2;
+}
+ion-card {
+    display: flex;
+    flex-direction: column;
+    width: 80% !important;
+    margin: 0 !important;
+    margin-left: 8% !important;
+}
+.row-cards{
+    margin-bottom:15px;
+}

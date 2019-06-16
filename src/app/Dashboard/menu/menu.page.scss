@@ -1,3 +1,6 @@
 .active-item {
     border-left: 8px solid var(--ion-color-primary);
 }
+.overlay-shadow{
+    top:0;height:100px;background:black;left:0;right:0;position: absolute;opacity:.8;z-index:90;
+}

@@ -77,7 +77,7 @@ ngAfterViewInit()
     this.dataHolder.loader = false;
     let tokenPlaceholder = this.authService.returnTokenPlaceholder();
     this.storage.get(tokenPlaceholder).then(async token=>{
-      const loading = await this.loadingController.create({ message: 'task details loading..',spinner:'bubbles' })
+      const loading = await this.loadingController.create({ message: 'task details loading..',spinner:'crescent' })
       loading.present().then(()=>{
         this.http.getData("/admin/single-task/"+this.parameters.id,token).subscribe(subscribed_data=>{
         console.log(subscribed_data)
@@ -118,22 +118,36 @@ ngAfterViewInit()
   } 
 
 
-  DownloadAvailableFile(attached_file)
+  async DownloadAvailableFile(attached_file)
   {
     console.log(attached_file)
+    console.log(this.dataHolder.data.file_directory);
     const url = this.dataHolder.data.file_directory+attached_file;
     console.log(url)
-    const fileTransfer: FileTransferObject = this.transfer.create();
-    fileTransfer.download(url, this.file.externalDataDirectory + attached_file).then((entry) => {
-      console.log('download complete: ' + entry.toURL());
-      this.toast.presentToastWithOptions("file has successfully finished downloading");
-    }, (error) => {
-      console.log("error");
-      this.alert.presentAlert("error","error while downloading","an error occured while downloading this file ensure proper network connections")
 
-      // handle error
+    const loading = await this.loadingController.create({ message: 'task details loading..',spinner:'crescent' })
+    loading.present().then(()=>{
+      const fileTransfer: FileTransferObject = this.transfer.create();
+      fileTransfer.download(url, this.file.externalDataDirectory + attached_file).then((entry) => {
+        console.log('download complete: ' + entry.toURL());
+        loading.dismiss();
+        this.toast.toastFadeOptions("file has successfully finished downloading check the following directory for file "+entry.toURL(),3000);
+      }, (error) => {
+        console.log(error);
+        loading.dismiss();
+        this.alert.presentAlert("error","error while downloading","an error occured while downloading this file ensure proper network connections")
+        // handle error
+      });
+    
+    
     });
+  
+ 
   }
+
+
+
+
 
   //alert message
   async ShowConfirmAlert(id) {
@@ -182,7 +196,7 @@ ngAfterViewInit()
         let item = {
           id :id,
         }
-        this.http.postData(item,"/admin/approve-task/",token).subscribe(subscribed_data=>{
+        this.http.postData(item,"/admin/approve-task",token).subscribe(subscribed_data=>{
         console.log(subscribed_data)
         this.dissaprove.response = subscribed_data;
         // if(this.dissaprove.response.hasOwnProperty("staff_punishement_type")){
@@ -275,7 +289,6 @@ ngAfterViewInit()
   }
   
 
-
  DissaproveTask(id)
  {
   let tokenPlaceholder = this.authService.returnTokenPlaceholder();
@@ -285,7 +298,7 @@ ngAfterViewInit()
       let item = {
         id :id,
       }
-      this.http.postData(item,"/admin/dissaprove-task/",token).subscribe(subscribed_data=>{
+      this.http.postData(item,"/admin/dissaprove-task",token).subscribe(subscribed_data=>{
       console.log(subscribed_data)
       this.dissaprove.response = subscribed_data;
       if(this.dissaprove.response.hasOwnProperty("staff_punishement_type")){
@@ -312,11 +325,6 @@ ngAfterViewInit()
  }
 
 
- MoveBack()
- {
-   this.navCtrl.back();
-  
- }
 
 
 

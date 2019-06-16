@@ -5,10 +5,15 @@ const routes: Routes = [
   
   { path: 'dashboard', loadChildren: '../Dashboard/menu/menu.module#MenuPageModule' },
   { path: 'message-creator-app-modal', loadChildren: '../Dashboard/message-creator-app-modal/message-creator-app-modal.module#MessageCreatorAppModalPageModule' },
+  { path: 'settings', loadChildren: '../Dashboard/settings/settings.module#SettingsPageModule' },
+  { path: 'help', loadChildren: '../Dashboard/help/help.module#HelpPageModule' },
+  { path: 'about', loadChildren: '../Dashboard/about/about.module#AboutPageModule' },
+  { path: 'privacy-policy', loadChildren: '../Dashboard/privacy-policy/privacy-policy.module#PrivacyPolicyPageModule' },
   // { path: 'staff-login-details-search-modal', loadChildren: '../Dashboard/staff-login-details-search-modal/staff-login-details-search-modal.module#StaffLoginDetailsSearchModalPageModule' },
   // { path: 'financial-history-modal', loadChildren: '../Dashboard/financial-history-modal/financial-history-modal.module#FinancialHistoryModalPageModule' },
   // { path: 'staff-full-login-details', loadChildren: './staff-full-login-details/staff-full-login-details.module#StaffFullLoginDetailsPageModule' },
  
+  
   // { path: 'financial-report', loadChildren: '../Dashboard/financial-report/financial-report.module#FinancialReportPageModule' },
   // { path: 'financial-modal', loadChildren: '../Dashboard/financial-modal/financial-modal.module#FinancialModalPageModule' },
  // { path: 'full-task-details', loadChildren: './full-task-details/full-task-details.module#FullTaskDetailsPageModule' },

@@ -18,7 +18,7 @@ export class MenuPage implements OnInit {
       icon:'home'
     },
     {
-      title: 'admins',
+      title: 'admin info',
       url: '/admin/dashboard/profile',
       icon: 'people'
     },
@@ -36,6 +36,16 @@ export class MenuPage implements OnInit {
       title:'staffs login',
       url:'/admin/dashboard/staff-login-details',
       icon:'people'
+    },
+    {
+      title:'Settings',
+      url:'/admin/settings',
+      icon:'cog'
+    },
+    {
+      title:'About',
+      url:'/admin/about',
+      icon:'information-circle'
     }
   ];
 

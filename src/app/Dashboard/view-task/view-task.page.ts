@@ -211,7 +211,6 @@ export class ViewTaskPage implements OnInit {
   });
   }
 
-
   async LoadActionSheetCtrl(id)
   {
     const actionSheet = await this.actionSheetController.create({

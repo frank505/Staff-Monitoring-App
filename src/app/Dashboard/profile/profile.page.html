@@ -3,20 +3,21 @@
  
     <ion-tab-bar slot="bottom">
    <!--this route is to add a new admin-->
-      <ion-tab-button tab="new-admin ">
-        <ion-icon name="create"></ion-icon>
+      <ion-tab-button tab="new-admin">
+        <ion-icon name="add"></ion-icon>
         <ion-label>new admin</ion-label>
       </ion-tab-button>
+
    <!--thos route is to view to all admins-->
       <ion-tab-button  [class.active-item]  tab="view-admin">
-        <ion-icon name="eye"></ion-icon>
-        <ion-label>admins info</ion-label>
+        <ion-icon name="people"></ion-icon>
+        <ion-label>info</ion-label>
       </ion-tab-button>
 
 <!--this route is to view your profile-->
     <ion-tab-button tab="your-profile">
       <ion-icon name="person"></ion-icon>
-      <ion-label>profile</ion-label>
+      <ion-label>personal</ion-label>
     </ion-tab-button>
   
 <!--this route is to change user password even though i called it update-profile-->

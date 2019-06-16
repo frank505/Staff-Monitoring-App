@@ -1,5 +1,5 @@
 
-<ion-header >
+<ion-header>
   <ion-toolbar>
       <ion-buttons class="drawer_elem" slot="start">
           <ion-back-button defaultHref="/admin/dashboard/user-profile/user-profile/view-users"></ion-back-button>
@@ -19,9 +19,8 @@
           </ion-card-header>
   
           <ion-card-content >
-
               <ion-item  class="activated">
-                  <ion-thumbnail slot="start">
+                  <ion-thumbnail slot="start" (click)="viewImage()">
                       <ion-img src="{{user_image_directory}}/{{user_details.profilephoto}}"></ion-img>
                     </ion-thumbnail>
                 </ion-item>
@@ -42,14 +41,11 @@
         </ion-item>
       
         <ion-item>
-          <h2>Created At: &nbsp;&nbsp;</h2>
-          <ion-label><b><b> {{user_details.created_at}}</b></b> </ion-label>
+          <h2>Last Login: &nbsp;&nbsp;</h2>
+          <ion-label><b><b> {{user_details.last_login}}</b></b> </ion-label>
         </ion-item>
 
-        <ion-item>
-            <h2>First Login: &nbsp;&nbsp;</h2>
-            <ion-label> <b><b>{{user_details.first_login}}</b></b></ion-label>
-          </ion-item>
+      
 
           
         <ion-item>

@@ -268,6 +268,7 @@ export class ViewUsersPage implements OnInit {
    
  async LoadActionSheetCtrl(id)
   {
+
     const actionSheet = await this.actionSheetController.create({
       header: 'User Details',
       buttons: [
@@ -275,12 +276,15 @@ export class ViewUsersPage implements OnInit {
         text: 'Staff profile',
         icon: 'people',
         handler: () => {
+          console.log(id)
          this.router.navigate(['/admin/dashboard/user-profile/user-profile/view-user', {id:id}])
         }
       }, {
         text: 'Financial Discipline Details',
         icon: 'cash',
         handler: () => {
+          console.log(id)
+          
          this.router.navigate(["/admin/dashboard/user-profile/user-profile/financial-report",{id:id}])
         }
 

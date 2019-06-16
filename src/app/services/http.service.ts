@@ -5,16 +5,17 @@ import {HttpClient , HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
- //public url:string = "http://www.techbuildz.com/api/cleversoft/api";
+ public url:string = "http://www.techbuildz.com/api/cleversoft/api";
  //public url = "http://10.0.2.2:8000/api";
 //public url = "http://192.168.75.1:8000/api";
-public url = "http://localhost:8000/api";
+//public url = "http://localhost:8000/api";
   public added_link:string;
   public data:any;
   public post_response:any;
  public header:any;
   constructor(public http: HttpClient) {
    
+    
     
    }
 

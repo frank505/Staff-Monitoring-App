@@ -33,7 +33,8 @@ const routes: Routes = [
       {
         path:'staff-full-login-details',
         loadChildren:'../../Dashboard/staff-full-login-details/staff-full-login-details.module#StaffFullLoginDetailsPageModule'
-      }
+      },
+      
     ]
   }
 ];

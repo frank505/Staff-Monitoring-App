@@ -49,22 +49,26 @@ export class UpdateTaskPage implements OnInit {
      private storage:Storage,private alert:AlertService,
      private route:ActivatedRoute,
      private transfer: FileTransfer, private file: File) {
-       this.loadFullTask();
-       this.getId();
+       
       }
 
-  ngOnInit() { }
+  ngOnInit()
+   {
+    this.getId();
+    this.loadFullTask();
+    }
 
 
   
 
-  getId()
-  {
-    this.route.params.subscribe(
-      params=> this.parameters = params
-    );
-    return this.parameters.id;
-  }
+    getId()
+    {
+      this.route.params.subscribe(
+        params=> this.parameters = params
+      );
+      console.log(this.parameters.id)
+      return this.parameters.id;
+    }
 
   async loadFullTask()
   {
@@ -110,7 +114,7 @@ DownloadAvailableFile(attached_file)
     const fileTransfer: FileTransferObject = this.transfer.create();
     fileTransfer.download(url, this.file.externalDataDirectory + attached_file).then((entry) => {
       console.log('download complete: ' + entry.toURL());
-      this.toast.presentToastWithOptions("file has successfully finished downloading");
+      this.toast.presentToastWithOptions("file has successfully finished downloading check the following directory for file "+entry.toURL());
     }, (error) => {
       console.log("error");
       this.alert.presentAlert("error","error while downloading","an error occured while downloading this file ensure proper network connections")
@@ -161,7 +165,7 @@ DownloadAvailableFile(attached_file)
        console.log(data)
        this.response_messages.success = data;
         loading.dismiss();
-        this.toast.presentToastWithOptions(this.response_messages.success.message);
+        this.toast.presentToastWithOptions("this task has been successfully updated");
         this.uploader.clearQueue();
         this.removeFileInputContent();
      },

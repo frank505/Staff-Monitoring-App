@@ -6,6 +6,7 @@ import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { AlertService } from "../../services/alert.service";
 import { ToastService } from '../../services/toast.service';
+import { PhotoViewer} from '@ionic-native/photo-viewer/ngx';
 
 @Component({
   selector: 'app-view-user',
@@ -19,7 +20,8 @@ export class ViewUserPage implements OnInit {
     private authService:AuthenticationServiceService,
      private loadingController:LoadingController,
      private toast:ToastService,
-     private storage:Storage,private alert:AlertService,private route:ActivatedRoute) { }
+     private storage:Storage,private alert:AlertService,private route:ActivatedRoute,
+     private photoviewer:PhotoViewer) { }
  
      user_details:any;
      profile_data:any;
@@ -38,6 +40,7 @@ export class ViewUserPage implements OnInit {
     return this.parameters.id;
   }
 
+  
   loadFullProfile()
   {
     let tokenPlaceholder = this.authService.returnTokenPlaceholder();
@@ -70,5 +73,11 @@ export class ViewUserPage implements OnInit {
   }
 
  
+  viewImage()
+  {
+    let url = this.user_image_directory+this.user_details.profilephoto;
+    console.log(url)
+    this.photoviewer.show(url);
+  }
 
 }

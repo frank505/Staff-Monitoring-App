@@ -33,11 +33,12 @@ export class FinancialReportPage implements OnInit {
      private toast:ToastService,
      private storage:Storage,private alert:AlertService,
      private modalController:ModalController) { 
-  this.getId();
-  this.getMonthlyReport();
+  
   }
 
   ngOnInit() {
+    this.getId();
+    this.getMonthlyReport();
   }
 
   ngAfterViewInit() {
@@ -51,6 +52,8 @@ export class FinancialReportPage implements OnInit {
     this.route.params.subscribe(
       params=> this.parameters = params
     );
+    console.log(this.parameters)
+    console.log(this.parameters.id)
     return this.parameters.id;
   }
 

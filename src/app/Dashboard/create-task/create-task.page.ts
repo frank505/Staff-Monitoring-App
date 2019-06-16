@@ -176,13 +176,14 @@ export class CreateTaskPage implements OnInit {
   let tokenPlaceholder = this.authService.returnTokenPlaceholder();
   console.log(tokenPlaceholder);
   this.storage.get(tokenPlaceholder).then( async token=>{
-    const loading = await this.loadingController.create({ message: 'please wait while task is created..',spinner:'bubbles' })
+    const loading = await this.loadingController.create({ message: 'please wait while task is created..',spinner:'crescent' })
     // console.log(header)
     loading.present().then(()=>{
       console
      this.http.postData(form_data,"/admin/create-task",token).subscribe(data=>{
        console.log(data)
        this.response_messages.success = data;
+       this.updateNotificationsTable(this.selected_users,this.UserInstruction,this.header,this.response_messages.success.id);
         loading.dismiss();
         this.toast.presentToastWithOptions(this.response_messages.success.message);
         this.uploader.clearQueue();
@@ -197,15 +198,16 @@ this.toast.presentToastWithOptions(this.response_messages.error.error);
     });
   }) 
    }
-   
-       
-
-    }
+           }
         
   }
 
 
 
+  updateNotificationsTable(selected_users,task_content,task_header,task_id)
+  {
+    console.log(task_id)
+  }
 
   removeFileInputContent() {
     console.log(this.resetFile.nativeElement.files);

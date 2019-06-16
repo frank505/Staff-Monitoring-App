@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
 
   { path: 'initializer', loadChildren: './initializer/initializer.module#InitializerPageModule' },
+  { path: 'about', loadChildren: './Dasboard/about/about.module#AboutPageModule' },
  
 ];
 

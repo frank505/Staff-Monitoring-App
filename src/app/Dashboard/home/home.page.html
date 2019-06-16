@@ -1,15 +1,28 @@
- <ion-header color="primary">
-  <ion-toolbar>
-      <ion-buttons class="drawer_elem" slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-    <ion-title color="primary">home</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content padding>
-  
-  <ion-grid>
+
+<ion-content  >
+
+    <ion-header color="primary" style="background:transparent !important;z-index:3;position:absolute;" no-border>
+        <ion-toolbar text-center>
+            <ion-buttons class="drawer_elem_none" slot="start">
+                <ion-menu-button ></ion-menu-button>
+              </ion-buttons>
+          <ion-title color="primary"></ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+<div class="image-content" >
+
+
+  <div class="overlay-shadow">
+
+  </div>
+
+<img src="../../../assets/images/logo_css.png" style="margin-top:100px;margin-left:5%;color:white;z-index:100;position:absolute;" alt="" srcset="">
+
+</div>
+
+  <ion-grid style="margin-top:240px;">
 
     <ion-row>
   
@@ -19,108 +32,115 @@
 
   </ion-grid>
 
+  <ion-grid >
+    <ion-row class="row-cards" >
+      <ion-col col-4>
+          <ion-card >
+              <ion-card-content text-center (click)="LoadPage('/admin/dashboard/profile/profile/new-admin')"> 
+                <ion-icon name="people" color="dark" class="ion-resize"></ion-icon><br>
+                     <b class="ion-item-link">Admin Info</b> 
+              </ion-card-content>
+            </ion-card>
 
-    <ion-grid >
-        <ion-row>
-          <ion-col col-6>
-              <ion-card routerLink="/admin/dashboard/profile/profile/new-admin">
-                  <ion-card-content text-center > 
-                    <ion-icon name="people" color="dark" class="ion-resize"></ion-icon><br>
-                         <b class="ion-item-link" style="color:dark !important;">Admin Info</b> 
-                  </ion-card-content>
-                </ion-card>
-  
-          </ion-col>
-          <ion-col col-6>
-
-              <ion-card routerLink="/admin/dashboard/user-profile/user-profile/add-user">
-                  <ion-card-content text-center> 
-                      <ion-icon name="contacts" color="dark" class="ion-resize"></ion-icon><br>
-                           <b class="ion-item-link">Staffs</b> 
-                    </ion-card-content>
-                  
-                </ion-card>
-  
-
-
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-6>
-              <ion-card>
-  
-                  <ion-card-content text-center routerLink="/admin/dashboard/tasks/tasks/create-task"> 
-                      <ion-icon name="add-circle" color="dark" class="ion-resize"></ion-icon><br>
-                           <b class="ion-item-link">Tasks</b> 
-                    </ion-card-content>
-                  
-                </ion-card>                      
-          </ion-col>
-          <ion-col col-6>
-              <ion-card>
-    
-                  <ion-card-content text-center routerLink="/admin/dashboard/staff-login-details"> 
-                      <ion-icon name="log-out" color="dark" class="ion-resize"></ion-icon><br>
-                           <b class="ion-item-link">staffs login</b> 
-                    </ion-card-content>
-                  
-                
-                </ion-card>
-  
-          </ion-col>
-        </ion-row>
+      </ion-col>
  
+      <ion-col col-4 >
 
-        <ion-row>
-            <ion-col col-6>
-                <ion-card>
-                    <ion-card-content text-center > 
-                      <ion-icon name="cog" color="dark" class="ion-resize"></ion-icon><br>
-                           <b class="ion-item-link" style="color:dark !important;">Settings</b> 
-                    </ion-card-content>
-                  </ion-card>
-    
-            </ion-col>
-            <ion-col col-6>
-  
-                <ion-card (click)="GoToServicePage()">
-                    <ion-card-content text-center> 
-                        <ion-icon name="information-circle" color="dark" class="ion-resize"></ion-icon><br>
-                             <b class="ion-item-link">About</b> 
-                      </ion-card-content>
-                    
-                  </ion-card>
-    
-                  
-            </ion-col>
-          </ion-row>
+          <ion-card >
+              <ion-card-content text-center (click)="LoadPage('/admin/dashboard/user-profile/user-profile/add-user')"> 
+                  <ion-icon name="contacts" color="dark" class="ion-resize"></ion-icon><br>
+                       <b class="ion-item-link">Staffs</b> 
+                </ion-card-content>
+              
+            </ion-card>
+
+
+
+      </ion-col>
+    </ion-row>
+    <ion-row class="row-cards">
+      <ion-col col-4>
+          <ion-card>
+
+              <ion-card-content text-center (click)="LoadPage('/admin/dashboard/tasks/tasks/create-task')"> 
+                  <ion-icon name="add-circle" color="dark" class="ion-resize"></ion-icon><br>
+                       <b class="ion-item-link">Tasks</b> 
+                </ion-card-content>
+              
+            </ion-card>                      
+      </ion-col>
+
+     
+
+      <ion-col col-4>
+          <ion-card>
+
+              <ion-card-content text-center (click)="LoadPage('/admin/dashboard/staff-login-details')"> 
+                  <ion-icon name="log-out" color="dark" class="ion-resize"></ion-icon><br>
+                       <b class="ion-item-link">staffs login</b> 
+                </ion-card-content>
+              
+            
+            </ion-card>
+
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="row-cards">
+        <ion-col col-4>
+            <ion-card>
+                <ion-card-content text-center (click)="LoadPage('/admin/settings')"> 
+                  <ion-icon name="cog" color="dark" class="ion-resize"></ion-icon><br>
+                       <b class="ion-item-link" style="color:dark !important;">Settings</b> 
+                </ion-card-content>
+              </ion-card>
+
+        </ion-col>
+       
+
+        <ion-col col-4>
+
+            <ion-card >
+                <ion-card-content text-center (click)="LoadPage('/admin/about')"> 
+                    <ion-icon name="information-circle" color="dark" class="ion-resize"></ion-icon><br>
+                         <b class="ion-item-link">About</b> 
+                  </ion-card-content>
+                
+              </ion-card>
+
+              
+        </ion-col>
+      </ion-row>
 
 
 <!--           
-        <ion-row>
-            <ion-col col-6>
-                <ion-card>
-                    <ion-card-content text-center > 
-                      <ion-icon name="home" color="dark" class="ion-resize"></ion-icon><br>
-                           <b class="ion-item-link" style="color:dark !important;">Logout</b> 
-                    </ion-card-content>
-                  </ion-card>
-    
-            </ion-col>
-                      </ion-row> -->
+    <ion-row>
+        <ion-col col-6>
+            <ion-card>
+                <ion-card-content text-center > 
+                  <ion-icon name="home" color="dark" class="ion-resize"></ion-icon><br>
+                       <b class="ion-item-link" style="color:dark !important;">Logout</b> 
+                </ion-card-content>
+              </ion-card>
 
-      </ion-grid>
+        </ion-col>
+                  </ion-row> -->
+
+  </ion-grid>
+
+
 
 
        <!-- fab placed to the bottom end -->
-    <ion-fab vertical="bottom"  (click)="loadMessageModal()" horizontal="end" slot="fixed">
+    <!-- <ion-fab vertical="bottom"  (click)="loadMessageModal()" horizontal="end" slot="fixed">
         <ion-fab-button>
           <ion-icon name="create"></ion-icon>
         </ion-fab-button>
-      </ion-fab>
+      </ion-fab> -->
     
-      <ion-footer text-center>
+      <!-- <ion-footer text-center vertical="bottom">
           Copyright ©{{ year }} Techmiz <br> All Rights Reserved
-   </ion-footer>
+   </ion-footer> -->
 
 </ion-content>

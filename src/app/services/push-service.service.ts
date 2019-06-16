@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {FCM} from '@ionic-native/fcm/ngx';
 import {Router} from '@angular/router';
-import { Firebase } from '@ionic-native/firebase/ngx';
+//import { Firebase } from '@ionic-native/firebase/ngx';
 import { Platform } from '@ionic/angular';
-import { AngularFirestore } from 'angularfire2/firestore';
+//import { AngularFirestore } from 'angularfire2/firestore';
 import {ToastService} from './toast.service';
 import {HttpService} from './http.service';
 import {AuthenticationServiceService} from './authentication-service.service';
@@ -16,8 +16,8 @@ export class PushServiceService {
  user_token:any;
 
   constructor(private fcm:FCM,private router:Router,
-    private firebase: Firebase,
-              private afs: AngularFirestore,
+  //  private firebase: Firebase,
+              // private afs: AngularFirestore,
               private platform: Platform,
               private toast:ToastService,
               private http:HttpService,
