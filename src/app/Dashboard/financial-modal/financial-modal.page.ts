@@ -58,7 +58,7 @@ export class FinancialModalPage implements OnInit {
   {
     let tokenPlaceholder = this.authService.returnTokenPlaceholder();
     this.storage.get(tokenPlaceholder).then(async token=>{
-      const loading = await this.loadingController.create({ message: 'approving this task..',spinner:'bubbles' })
+      const loading = await this.loadingController.create({ message: 'approving this task..',spinner:'crescent' })
       loading.present().then(()=>{
         let item = {
           complaints:this.Complaints,
@@ -136,7 +136,7 @@ export class FinancialModalPage implements OnInit {
     this.taskId = taskId;
     let tokenPlaceholder = this.authService.returnTokenPlaceholder();
     this.storage.get(tokenPlaceholder).then(async token=>{
-      const loading = await this.loadingController.create({ message: 'updating complaints..',spinner:'bubbles' })
+      const loading = await this.loadingController.create({ message: 'updating complaints..',spinner:'crescent' })
       loading.present().then(()=>{
         let item = {
           complaints:this.Complaints,

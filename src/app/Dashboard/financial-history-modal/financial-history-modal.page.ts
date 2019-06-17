@@ -90,7 +90,7 @@ public response = {
  {
   let tokenPlaceholder = this.authService.returnTokenPlaceholder();
   this.storage.get(tokenPlaceholder).then(async token=>{
-    const loading = await this.loadingController.create({ spinner:'bubbles' })
+    const loading = await this.loadingController.create({ spinner:'crescent' })
     loading.present().then(()=>{
       this.http.getData("/admin/get-year/"+this.userId,token).subscribe(subscribed_data=>{
       console.log(subscribed_data)
@@ -135,7 +135,7 @@ public response = {
    }
   let tokenPlaceholder = this.authService.returnTokenPlaceholder();
   this.storage.get(tokenPlaceholder).then(async token=>{
-    const loading = await this.loadingController.create({ spinner:'bubbles', message:'..searching for financial report' })
+    const loading = await this.loadingController.create({ spinner:'crescent', message:'..searching for financial report' })
     loading.present().then(()=>{
       this.http.postData(data,"/admin/full-financial-report",token).subscribe(subscribed_data=>{
       console.log(subscribed_data)

@@ -15,10 +15,7 @@ export class HomePage implements OnInit {
   private showContent:boolean = false;
  private year:any;
  private date:any;
-  options:NativeTransitionOptions = {
-    direction:"left",
-    duration: 200,
-  }
+  
 
   constructor(private router:Router,
     private push:PushServiceService,
@@ -32,6 +29,14 @@ export class HomePage implements OnInit {
    this.setYear();
    }
 
+
+
+
+
+
+
+
+
   ngOnInit() {
  
   }
@@ -39,9 +44,18 @@ export class HomePage implements OnInit {
  
 LoadPage(url)
 {
-  this.nativePageTransitions.slide(this.options);
-  //this.navCtrl.navigateRoot(url);
-  this.navCtrl.navigateForward(url);
+
+  // let options:NativeTransitionOptions = {
+    // direction: 'left',
+    // duration: 400,
+    // slowdownfactor: -1,
+    // iosdelay: 50
+  // }
+
+  this.nativePageTransitions.fade(null);
+ // this.nativePageTransitions.slide();
+  this.navCtrl.navigateRoot(url);
+// this.navCtrl.navigateForward(url);
 }
 
   setYear()

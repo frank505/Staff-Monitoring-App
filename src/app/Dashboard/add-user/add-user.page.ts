@@ -41,7 +41,7 @@ error_response:any;
        this.storage.get(tokenPlaceholder).then(async (token)=>{
            console.log(token)
           // let responder = token.substring(7);
-     const loading = await this.loadingController.create({ message: 'registering new staff..',spinner:'bubbles' })
+     const loading = await this.loadingController.create({ message: 'registering new staff..',spinner:'crescent' })
           loading.present().then( () => {
             this.http.postData(this.form,"/admin/register-staff",token).subscribe(
               data => {

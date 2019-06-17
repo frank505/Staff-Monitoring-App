@@ -36,6 +36,11 @@ logout()
 }
 
 
+ForgotPassword(ForgotPasswordDetails)
+{
+  return this.http.postData(ForgotPasswordDetails,"/admin/reset-password-link");
+}
+
 async checkToken()
 {
   await this.storage.get(ADMIN_TOKEN).then(async (res)=>{
